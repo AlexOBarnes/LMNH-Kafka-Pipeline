@@ -25,7 +25,6 @@ def check_invalid_type(type_value: int) -> bool:
 
     return False
 
-
 def check_valid_value(data: dict) -> str:
     '''Checks if the given value is valid'''
     value = data.get("val",0)

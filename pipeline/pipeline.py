@@ -26,7 +26,6 @@ def get_date() -> str:
     '''Returns the current date'''
     return dt.now().strftime('%d-%m-%Y_%H:%M:%S')
 
-
 if __name__ == "__main__":
     logger = logging.getLogger(__name__)
     parse_arguments()
