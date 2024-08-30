@@ -25,21 +25,18 @@ def consume_data(con: Consumer, logger: logging.Logger) -> None:
         while True:
             msg = con.poll(timeout=1.0)
 
-            if msg is None:
-                continue
-
-            if msg.error():
-                logging.warning("Error: %s",msg.error().str())
-
             if msg:
-                logging.info("Consumed event from %s: key= %s, value= %s", ENV["TOPIC"],
-                             str(msg.key())[1:], str(msg.value())[1:])
-                error_msg = check_data(json.loads(msg.value().decode()))
-                if error_msg:
-                    logging.warning(error_msg)
+                if msg.error():
+                    logging.warning("Error: %s",msg.error().str())
                 else:
-                    clean_data = transform(json.loads(msg.value().decode()))
-                    load_data(clean_data,logger)
+                    logging.info("Consumed event from %s: key= %s, value= %s", ENV["TOPIC"],
+                                str(msg.key())[1:], str(msg.value())[1:])
+                    error_msg = check_data(json.loads(msg.value().decode()))
+                    if error_msg:
+                        logging.warning(error_msg)
+                    else:
+                        clean_data = transform(json.loads(msg.value().decode()))
+                        load_data(clean_data,logger)
     except KeyboardInterrupt:
         pass
     finally:
