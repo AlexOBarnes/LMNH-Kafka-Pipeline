@@ -15,7 +15,7 @@ git clone https://github.com/AlexOBarnes/LMNH-Kafka-Pipeline.git
 cd pipeline/
 pip install -r requirements.txt
 ```
-Requirements.txt file includes all dependencies including: confluent_kafka, psycopg2, and python-dotenv.
+The requirements.txt file includes all dependencies including: `confluent_kafka`, `psycopg2`, and `python-dotenv`.
 
 ### Setup
 In order to run the script users must create a .env file containing the following things.
@@ -99,5 +99,5 @@ This will remove data from only the `rating_interaction` and `request_interactio
 Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure that your code adheres to the project's coding standards, I use pylint to format my code, and is well-documented. Code must score above an 8 in pylint and the unit tests included in the repository must pass.
 
 ### Licence
-This project is licensed under the MIT License - Please see the [attached](https://github.com/AlexOBarnes/LMNH-Kafka-Pipeline/blob/main/LICENSE) file 
+This project is licensed under the MIT License - Please see the [attached](https://github.com/AlexOBarnes/LMNH-Kafka-Pipeline/blob/main/LICENSE) file. 
 
